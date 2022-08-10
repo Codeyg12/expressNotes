@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
-const fs = require('fs')
+const fs = require("fs");
+const uuidv1 = require("uuidv1");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -23,7 +24,8 @@ app
     res.sendFile(path.join(__dirname, "./db/db.json"));
   })
   .post((req, res) => {
-    let newNote = req.body;
+    let { title, text } = req.body;
+    let newNote = { title, text, id: uuidv1() };
     let notesList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     notesList.push(newNote);
 
@@ -31,12 +33,24 @@ app
     res.json(notesList);
   });
 
+app.delete("/api/notes/:id", (req, res) => {
+  let notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+  let noteId = req.params.id;
+
+  notes = notes.filter((current) => {
+    return current.id != noteId;
+  });
+
+  fs.writeFileSync("./db/db.json", JSON.stringify(notes));
+  res.json(notes);
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/error.html"));
 });
 
 app.listen(PORT, () => {
-  console.log(`Now running on ${PORT}`);
+  console.log(`Now running on http://localhost:${PORT}`);
 });
 
 //npm run devStart
