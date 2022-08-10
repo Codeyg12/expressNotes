@@ -20,6 +20,10 @@
 
   This project is to use our newfound knowledge of Express to build a note taker, at least the back-end of it, the front end has already been completed. It will use JSON files to save and retrieve data.
 
+  ### Deployed App
+  
+  To use the finished page follow the link [here](https://shielded-garden-68829.herokuapp.com/)
+
   ### Installation
 
   Go to Github and clone the code. You will also need to install all necessary packages found in the package.JSON
