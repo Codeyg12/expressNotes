@@ -22,7 +22,7 @@
 
   ### Installation
 
-  Go to Github and clone the code
+  Go to Github and clone the code. You will also need to install all necessary packages found in the package.JSON
 
   ### Usage
 
