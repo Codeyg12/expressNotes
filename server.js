@@ -45,8 +45,9 @@ app.delete("/api/notes/:id", (req, res) => {
   res.json(notes);
 });
 
+//Initally I made an error page but that isn't correct 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/error.html"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.listen(PORT, () => {
