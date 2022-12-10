@@ -1,4 +1,4 @@
-# Express Note Taker
+# Express Note Taker [<img align="right" src="https://img.shields.io/badge/license-MIT-00beef"></img>](LICENSE)
 
   ## License 
   ![License](https://img.shields.io/badge/license-MIT-00beef)
